@@ -1,0 +1,84 @@
+*,*::after, *::before{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5;
+}
+
+body{
+    font-size: 1.5rem;
+    background-size: auto;
+    background-image: url(/public/images/Untitled.jpg); 
+    background-attachment: fixed;    
+    display: flex;
+  }
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    font-family: sans-serif;
+    color: white;
+    font-size: medium;
+}
+
+.nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 10vh;
+    background-color: rgb(9, 9, 9);
+}
+
+.nav__brand{
+   background-image: url(/public/images/logo3.png);
+   height: 80px;
+   width: 250px;
+   position: relative;
+   background-size: cover;
+   
+}
+
+.nav__menu{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 5rem;
+    width: 100%;
+    margin-left: 200px;
+}
+
+.nav__link:hover{
+    color: orange;
+}
+
+/* style the button.. */
+.btnLogin{
+  margin-left: 300px;
+  height: 30px;
+    width: 10px;
+    font-size: 0.7em;
+    color: white;
+}
+
+.btnLogin:hover{
+    background-color: rgb(186, 224, 106);
+}
+
+.nav__toggler {
+    display: none;
+  }
+
+  .nav__toggler div {
+    width: 1.5rem;
+    height: 0.2rem;
+    margin: 0.2rem;
+    background: rgb(204, 204, 204);
+    transition: 0.3s ease-in;
+  }
+  
+  
