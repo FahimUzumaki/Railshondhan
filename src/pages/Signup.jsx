@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Login = () => {
+const Signup = () => {
   return (
     <section className="">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen w-screen  lg:py-0">
@@ -9,7 +9,7 @@ const Login = () => {
           className="flex items-center text-2xl font-semibold text-gray-900"
         >
           <img
-            className="w-48"
+            className="w-48 mt-10"
             src="https://www.linkpicture.com/q/final_logo.png"
             alt="no"
           />
@@ -17,7 +17,7 @@ const Login = () => {
         <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
             <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-center">
-              Sign in
+              Create an account
             </h1>
             <form className="space-y-4 md:space-y-6" action="#">
               <div>
@@ -52,30 +52,24 @@ const Login = () => {
                   required
                 />
               </div>
-              <div className="flex items-center justify-between">
-                <div className="flex items-start">
-                  <div className="flex items-center h-5">
-                    <input
-                      id="remember"
-                      aria-describedby="remember"
-                      type="checkbox"
-                      className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300"
-                      required
-                    />
-                  </div>
-                  <div className="ml-3 text-sm">
-                    <label htmlFor="remember" className="text-gray-500">
-                      Remember me
-                    </label>
-                  </div>
-                </div>
-                <a
-                  href="valid"
-                  className="text-sm font-medium text-primary-600 hover:underline"
+
+              <div>
+                <label
+                  htmlFor="password"
+                  className="block mb-2 text-sm text-start font-medium text-gray-900"
                 >
-                  Forgot password?
-                </a>
+                  Confirm Password
+                </label>
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  placeholder="••••••••"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                  required
+                />
               </div>
+
               <div className="d-grid">
                 <button
                   type="submit"
@@ -85,19 +79,14 @@ const Login = () => {
                 </button>
               </div>
               <p className="text-sm text-center font-light text-gray-500">
-                Don't have an account yet?{" "}
+                Already signed in?{" "}
                 <Link
-                  to="/sign up"
+                  to="/login"
                   className="font-medium text-primary-600 hover:underline"
                 >
                   {" "}
-                  Sign up{" "}
+                  log in{" "}
                 </Link>
-                {/* <a
-                  href="valid"
-                  className="nav-link"
-                  // className="font-medium text-primary-600 hover:underline"
-                ></a> */}
               </p>
             </form>
           </div>
@@ -107,4 +96,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Signup;
