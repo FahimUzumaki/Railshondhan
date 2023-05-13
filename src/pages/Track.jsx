@@ -1,28 +1,27 @@
 // import React from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 
 const Track = () => {
   const trains = [
     {
       id: 1,
-      name: "Mainul",
+      name: "Banalata Express",
     },
     {
       id: 2,
-      name: "Dudunul",
+      name: "Chaitri Express",
     },
     {
       id: 3,
-      name: "MaiNull",
+      name: "Dhumketu",
     },
     {
       id: 4,
-      name: "MI",
+      name: "Padma Express",
     },
     {
       id: 5,
-      name: "fahim",
+      name: "Silkcity Express",
     },
   ];
 

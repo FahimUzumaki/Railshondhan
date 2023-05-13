@@ -10,7 +10,6 @@ html{
 body{
     font-size: 1.5rem;
     background-size: auto;
-    background-image: url(/public/images/Untitled.jpg); 
     background-attachment: fixed;    
     display: flex;
   }

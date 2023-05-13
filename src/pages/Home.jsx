@@ -1,15 +1,15 @@
 // import React from "react";
 
-
 const Home = () => {
-  const Background =
-    "https://images.pexels.com/photos/253647/pexels-photo-253647.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2";
+  // const Background =
+  //   "https://images.pexels.com/photos/253647/pexels-photo-253647.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2";
   return (
     <div
       className="md:h-screen w-screen"
       style={{
-        backgroundImage: "url(" + Background + ")",
+        backgroundImage: "url(/public/images/Untitled.jpg)",
         backgroundSize: "cover",
+        marginTop: "80px",
         backgroundPosition: "center",
       }}
     >
