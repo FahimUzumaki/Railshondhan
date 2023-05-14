@@ -1,5 +1,6 @@
 // import React from "react";
 import { useState, useEffect } from "react";
+import TrainCard from "../components/TrainCard";
 
 const Track = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -103,7 +104,19 @@ const Track = () => {
         {/* Content */}
         <div className="mt-2">
           {searchedTrains.map((item) => {
-            return <li key={item._id}>{item.name}</li>;
+            return (
+              <TrainCard
+                key={item._id}
+                name={item.name}
+                trainNumber={item.trainNumber}
+                from={item.from}
+                to={item.to}
+                departure={item.departure}
+                arrival={item.arrival}
+                getLocation={() => console.log("Get location clicked")}
+                setLocation={() => console.log("Set location clicked")}
+              />
+            );
           })}
         </div>
         {isLoading && <p className="text-sm  text-blue-500">Loading...</p>}

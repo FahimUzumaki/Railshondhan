@@ -14,7 +14,7 @@ const Home = () => {
       }}
     >
       <div className="flex flex-col items-center mt-18 px-6 py-8 mx-auto  lg:py-0">
-        <div className="mt-24">Boop</div>
+        <div className="mt-24"></div>
       </div>
     </div>
   );
