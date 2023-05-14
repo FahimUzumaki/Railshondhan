@@ -7,7 +7,7 @@ const Home = () => {
     <div
       className="md:h-screen w-screen"
       style={{
-        backgroundImage: "url(/public/images/Untitled.jpg)",
+        backgroundImage: "url(/images/Untitled.jpg)",
         backgroundSize: "cover",
         marginTop: "80px",
         backgroundPosition: "center",

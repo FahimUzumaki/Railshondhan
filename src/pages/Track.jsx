@@ -1,32 +1,42 @@
 // import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Track = () => {
-  const trains = [
-    {
-      id: 1,
-      name: "Banalata Express",
-    },
-    {
-      id: 2,
-      name: "Chaitri Express",
-    },
-    {
-      id: 3,
-      name: "Dhumketu",
-    },
-    {
-      id: 4,
-      name: "Padma Express",
-    },
-    {
-      id: 5,
-      name: "Silkcity Express",
-    },
-  ];
-
-  const [searchedTrains, setSearchedTrains] = useState(trains);
   const [searchQuery, setSearchQuery] = useState("");
+  const [trains, setTrains] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const accessToken = localStorage.getItem("accessToken");
+  const [searchedTrains, setSearchedTrains] = useState([]);
+
+  useEffect(() => {
+    setIsLoading(true);
+    setError(null);
+    fetch("http://localhost:3000/train", {
+      headers: {
+        Authorization: "Bearer " + accessToken,
+      },
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw Error("Train List fecthing is not successful");
+        } else {
+          return res.json();
+        }
+      })
+      .then((data) => {
+        setTrains(data);
+        console.log(trains);
+        setIsLoading(false);
+        setError(null);
+        setSearchedTrains(data);
+      })
+      .catch((error) => {
+        setError(error.message);
+        setIsLoading(false);
+      });
+  }, []);
+  // console.log(trains);
 
   const updateSearchQuery = (e) => {
     setSearchQuery(e.target.value);
@@ -93,9 +103,11 @@ const Track = () => {
         {/* Content */}
         <div className="mt-2">
           {searchedTrains.map((item) => {
-            return <li key={item.id}>{item.name}</li>;
+            return <li key={item._id}>{item.name}</li>;
           })}
         </div>
+        {isLoading && <p className="text-sm  text-blue-500">Loading...</p>}
+        {error && <p className="text-sm font-medium text-red-500">{error}</p>}
       </div>
     </section>
   );
