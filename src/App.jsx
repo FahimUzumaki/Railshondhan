@@ -5,6 +5,8 @@ import Navbar from "./components/Navbar";
 import Track from "./pages/Track";
 import Home from "./pages/Home";
 import Signup from "./pages/Signup";
+import Services from "./pages/Services";
+import Location from "./pages/Location";
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
           <Route path="/sign up" element={<Signup />} />
 
           <Route path="/track" element={<Track />} />
+          <Route path="/location" element={<Location />} />
+          <Route path="/services" element={<Services />} />
         </Routes>
       </BrowserRouter>
     </>
