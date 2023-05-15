@@ -5,11 +5,11 @@ const Services = () => {
   const zoom = 16; // 15 is ideal
 
   return (
-    <div className="Comp1">
+    <div className="md">
       <iframe
         src={`https://maps.google.com/maps?q=${lat},${lon}&z=${zoom}&output=embed`}
-        width="600"
-        height="450"
+        width="1800px"
+        height="800px"
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
         title="google map"

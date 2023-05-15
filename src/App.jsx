@@ -7,6 +7,8 @@ import Home from "./pages/Home";
 import Signup from "./pages/Signup";
 import Services from "./pages/Services";
 import Location from "./pages/Location";
+import Help from "./pages/Help";
+import Service from "./pages/Service";
 
 function App() {
   return (
@@ -14,13 +16,16 @@ function App() {
       <BrowserRouter>
         <Navbar></Navbar>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/sign up" element={<Signup />} />
 
           <Route path="/track" element={<Track />} />
           <Route path="/location" element={<Location />} />
-          <Route path="/services" element={<Services />} />
+          <Route path="/get" element={<Services />} />
+          <Route path="/service" element={<Service />} />
+
+          <Route path="/help" element={<Help />} />
         </Routes>
       </BrowserRouter>
     </>

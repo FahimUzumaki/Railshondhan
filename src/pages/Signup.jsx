@@ -133,12 +133,14 @@ const Signup = () => {
               </div> */}
 
               <div className="d-grid">
-                <button
-                  type="submit"
-                  className="btn bg-blue-500 px-5 py-2 rounded text-white w-full"
-                >
-                  Sign up
-                </button>
+                <Link to="/login">
+                  <button
+                    type="submit"
+                    className="btn bg-blue-500 px-5 py-2 rounded text-white w-full"
+                  >
+                    Sign up
+                  </button>
+                </Link>
               </div>
               <p className="text-sm text-center font-light text-gray-500">
                 Already have an account?{" "}

@@ -1,13 +1,9 @@
-// import React from "react";
-
-const Home = () => {
-  // const Background =
-  //   "https://images.pexels.com/photos/253647/pexels-photo-253647.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2";
+const Help = () => {
   return (
     <div
-      className="m"
+      className="md"
       style={{
-        backgroundImage: "url(/images/home.jpg)",
+        backgroundImage: "url(/images/help.jpg)",
         backgroundSize: "cover",
         width: "1600px",
         height: "960px",
@@ -20,4 +16,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Help;

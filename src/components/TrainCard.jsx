@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Transition } from "@headlessui/react";
+import { Link } from "react-router-dom";
 
 function TrainCard({ name, trainNumber, from, to, departure, arrival }) {
   const [showButtons, setShowButtons] = useState(false);
@@ -69,12 +70,14 @@ function TrainCard({ name, trainNumber, from, to, departure, arrival }) {
               <p>{arrival}</p>
             </div>
             <div className="flex justify-end">
-              <button
-                className="px-4 py-2 bg-blue-500 text-white rounded-md mr-2 hover:bg-blue-600 transition-colors duration-150"
-                onClick={handleGetLocationButtonClick}
-              >
-                Get Location
-              </button>
+              <Link to="/get">
+                <button
+                  className="px-4 py-2 bg-blue-500 text-white rounded-md mr-2 hover:bg-blue-600 transition-colors duration-150"
+                  onClick={handleGetLocationButtonClick}
+                >
+                  Get Location
+                </button>
+              </Link>
               <button
                 className="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition-colors duration-150"
                 onClick={handleGiveLocationButtonClick}
