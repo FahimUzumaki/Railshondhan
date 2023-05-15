@@ -20,11 +20,15 @@ const Services = () => {
     try {
       setIsLoading(true);
       setError(null);
-      fetch("http://localhost:3000/location/estimated/" + trainNumber, {
-        headers: {
-          Authorization: "Bearer " + accessToken,
-        },
-      })
+      fetch(
+        "https://rail-sondhan-backend.vercel.app/location/estimated/" +
+          trainNumber,
+        {
+          headers: {
+            Authorization: "Bearer " + accessToken,
+          },
+        }
+      )
         .then((res) => {
           if (!res.ok) {
             throw Error("Getting location data was not successful");

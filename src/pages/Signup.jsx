@@ -13,17 +13,20 @@ const Signup = () => {
     try {
       setIsLoading(true);
       setError(null);
-      const response = await fetch("http://localhost:3000/auth/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email,
-          password,
-          isVerified: false,
-        }),
-      });
+      const response = await fetch(
+        "https://rail-sondhan-backend.vercel.app/auth/register",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email,
+            password,
+            isVerified: false,
+          }),
+        }
+      );
       if (response.ok) {
         const data = await response.json();
         console.log("Signup successful:", data);
@@ -127,14 +130,12 @@ const Signup = () => {
               </div> */}
 
               <div className="d-grid">
-                <Link to="/login">
-                  <button
-                    type="submit"
-                    className="btn bg-blue-500 px-5 py-2 rounded text-white w-full"
-                  >
-                    Sign up
-                  </button>
-                </Link>
+                <button
+                  type="submit"
+                  className="btn bg-blue-500 px-5 py-2 rounded text-white w-full"
+                >
+                  Sign up
+                </button>
               </div>
               <p className="text-sm text-center font-light text-gray-500">
                 Already have an account?{" "}

@@ -32,14 +32,10 @@ function TrainCard({ name, trainNumber, from, to, departure, arrival }) {
     console.log(latitude);
     console.log(longitude);
 
-    // const { isLoading, error } = usePost(trainNumber, longitude, latitude);
-    // setIsLoading(isLoading);
-    // setError(error);
-
     if (latitude && longitude) {
       setIsLoading(true);
       setError(null);
-      fetch("http://localhost:3000/location", {
+      fetch("https://rail-sondhan-backend.vercel.app/location", {
         method: "POST",
         headers: {
           Authorization: "Bearer " + accessToken,

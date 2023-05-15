@@ -13,7 +13,7 @@ const Track = () => {
   useEffect(() => {
     setIsLoading(true);
     setError(null);
-    fetch("http://localhost:3000/train", {
+    fetch("https://rail-sondhan-backend.vercel.app/train", {
       headers: {
         Authorization: "Bearer " + accessToken,
       },
