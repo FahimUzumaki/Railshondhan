@@ -29,7 +29,8 @@ const Login = () => {
         setIsLoading(false);
         localStorage.setItem("accessToken", data.accessToken);
         localStorage.setItem("refreshToken", data.refreshToken);
-        localStorage.setItem("userID", data.userID);
+        localStorage.setItem("userID", email);
+        localStorage.setItem("isLoggedIn", true);
 
         console.log(
           localStorage.getItem("accessToken") +
@@ -144,6 +145,7 @@ const Login = () => {
                 </button>
               </div>
               <p className="text-sm text-center font-light text-gray-500">
+                {/* eslint-disable-next-line react/no-unescaped-entities */}
                 Don't have an account yet?{" "}
                 <Link
                   to="/sign up"
