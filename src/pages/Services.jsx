@@ -12,7 +12,6 @@ const Services = () => {
   const [latitude, setLatitude] = useState(0);
   const [longitude, setLongitude] = useState(0);
   const accessToken = localStorage.getItem("accessToken");
-  const userID = localStorage.getItem("userID");
 
   const { trainNumber } = useParams();
 

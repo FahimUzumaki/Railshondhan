@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Transition } from "@headlessui/react";
 import { Link } from "react-router-dom";
 
+// eslint-disable-next-line react/prop-types
 function TrainCard({ name, trainNumber, from, to, departure, arrival }) {
   const [showButtons, setShowButtons] = useState(false);
   const [error, setError] = useState(null);
@@ -31,6 +32,10 @@ function TrainCard({ name, trainNumber, from, to, departure, arrival }) {
 
     console.log(latitude);
     console.log(longitude);
+
+    // const { isLoading, error } = usePost(trainNumber, longitude, latitude);
+    // setIsLoading(isLoading);
+    // setError(error);
 
     if (latitude && longitude) {
       setIsLoading(true);
@@ -128,14 +133,14 @@ function TrainCard({ name, trainNumber, from, to, departure, arrival }) {
             <div className="flex justify-end">
               <Link to={`/get_location/${trainNumber}`}>
                 <button
-                  className="px-7 py-3 bg-blue-500 text-white rounded-md mr-2 hover:bg-blue-600 transition-colors duration-150"
+                  className="px-7 py-3 bg-blue-500 text-white rounded-md mr-2 hover:bg-blue-600 transition-colors duration-150 text-sm"
                   onClick={handleGetLocationButtonClick}
                 >
                   Get Location
                 </button>
               </Link>
               <button
-                className="px-4 py-1 bg-green-500 text-white rounded-md ml-2 hover:bg-green-600 transition-colors duration-150"
+                className="px-4 py-1 bg-green-500 text-white rounded-md ml-2 hover:bg-green-600 transition-colors duration-150 text-sm"
                 onClick={handleSetLocationButtonClick}
               >
                 Set Location
