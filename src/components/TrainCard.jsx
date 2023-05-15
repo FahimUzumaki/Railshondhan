@@ -1,9 +1,15 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Transition } from "@headlessui/react";
 import { Link } from "react-router-dom";
 
 function TrainCard({ name, trainNumber, from, to, departure, arrival }) {
   const [showButtons, setShowButtons] = useState(false);
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [latitude, setLatitude] = useState(null);
+  const [longitude, setLongitude] = useState(null);
+  const accessToken = localStorage.getItem("accessToken");
+  const userID = localStorage.getItem("userID");
 
   function handleGetLocationButtonClick() {
     console.log("Get Location button clicked");
@@ -13,6 +19,58 @@ function TrainCard({ name, trainNumber, from, to, departure, arrival }) {
   function handleSetLocationButtonClick() {
     console.log("Set Location button clicked");
     console.log(trainNumber);
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        setLatitude(position.coords.latitude);
+        setLongitude(position.coords.longitude);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+
+    console.log(latitude);
+    console.log(longitude);
+
+    // const { isLoading, error } = usePost(trainNumber, longitude, latitude);
+    // setIsLoading(isLoading);
+    // setError(error);
+
+    if (latitude && longitude) {
+      setIsLoading(true);
+      setError(null);
+      fetch("http://localhost:3000/location", {
+        method: "POST",
+        headers: {
+          Authorization: "Bearer " + accessToken,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userID: userID,
+          trainNumber: trainNumber,
+          location: {
+            type: "Point",
+            coordinates: [longitude, latitude],
+          },
+        }),
+      })
+        .then((res) => {
+          if (!res.ok) {
+            throw Error("Saving location data is not successful");
+          } else {
+            setIsLoading(false);
+            setError(null);
+            console.log("Location saving was successful");
+            return res.json();
+          }
+        })
+        .catch((error) => {
+          setError(error.message);
+          setIsLoading(false);
+        });
+    } else {
+      setError("Location not provided . Please click again");
+    }
   }
 
   return (
@@ -72,7 +130,7 @@ function TrainCard({ name, trainNumber, from, to, departure, arrival }) {
               <p>{arrival}</p>
             </div>
             <div className="flex justify-end">
-              <Link to="/get">
+              <Link to={`/get_location/${trainNumber}`}>
                 <button
                   className="px-7 py-3 bg-blue-500 text-white rounded-md mr-2 hover:bg-blue-600 transition-colors duration-150"
                   onClick={handleGetLocationButtonClick}
@@ -90,6 +148,8 @@ function TrainCard({ name, trainNumber, from, to, departure, arrival }) {
           </div>
         )}
       </Transition>
+      {isLoading && <p className="text-sm  text-blue-500">Loading...</p>}
+      {error && <p className="text-sm font-medium text-red-500">{error}</p>}
     </div>
   );
 }

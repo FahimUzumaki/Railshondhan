@@ -23,7 +23,7 @@ function App() {
 
           <Route path="/track" element={<Track />} />
           <Route path="/location" element={<Location />} />
-          <Route path="/get" element={<Services />} />
+          <Route path="/get_location/:trainNumber" element={<Services />} />
           <Route path="/service" element={<Service />} />
 
           <Route path="/help" element={<Help />} />
