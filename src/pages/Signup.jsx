@@ -32,13 +32,7 @@ const Signup = () => {
         localStorage.setItem("refreshToken", data.refreshToken);
         localStorage.setItem("userID", data.userID);
 
-        console.log(
-          localStorage.getItem("accessToken") +
-            "\n" +
-            localStorage.getItem("userID")
-        );
-
-        window.location.href = "/";
+        window.location.href = "/home";
       } else {
         const errorData = await response.json();
         setError(errorData.error.message);

@@ -7,10 +7,12 @@ function TrainCard({ name, trainNumber, from, to, departure, arrival }) {
 
   function handleGetLocationButtonClick() {
     console.log("Get Location button clicked");
+    console.log(trainNumber);
   }
 
-  function handleGiveLocationButtonClick() {
-    console.log("Give Location button clicked");
+  function handleSetLocationButtonClick() {
+    console.log("Set Location button clicked");
+    console.log(trainNumber);
   }
 
   return (
@@ -72,17 +74,17 @@ function TrainCard({ name, trainNumber, from, to, departure, arrival }) {
             <div className="flex justify-end">
               <Link to="/get">
                 <button
-                  className="px-4 py-2 bg-blue-500 text-white rounded-md mr-2 hover:bg-blue-600 transition-colors duration-150"
+                  className="px-7 py-3 bg-blue-500 text-white rounded-md mr-2 hover:bg-blue-600 transition-colors duration-150"
                   onClick={handleGetLocationButtonClick}
                 >
                   Get Location
                 </button>
               </Link>
               <button
-                className="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition-colors duration-150"
-                onClick={handleGiveLocationButtonClick}
+                className="px-4 py-1 bg-green-500 text-white rounded-md ml-2 hover:bg-green-600 transition-colors duration-150"
+                onClick={handleSetLocationButtonClick}
               >
-                Give Location
+                Set Location
               </button>
             </div>
           </div>

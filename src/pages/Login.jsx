@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import  { useState } from "react";
+import { useState } from "react";
 
 const Login = () => {
   const [error, setError] = useState(null);
@@ -37,7 +37,7 @@ const Login = () => {
             localStorage.getItem("userID")
         );
 
-        window.location.href = "/";
+        window.location.href = "/home";
       } else {
         const errorData = await response.json();
         setError(errorData.error.message);
