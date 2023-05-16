@@ -35,7 +35,7 @@ const Signup = () => {
         localStorage.setItem("refreshToken", data.refreshToken);
         localStorage.setItem("userID", data.userID);
 
-        window.location.href = "/home";
+        window.location.href = "/";
       } else {
         const errorData = await response.json();
         setError(errorData.error.message);
