@@ -34,6 +34,7 @@ const Signup = () => {
         localStorage.setItem("accessToken", data.accessToken);
         localStorage.setItem("refreshToken", data.refreshToken);
         localStorage.setItem("userID", data.userID);
+        localStorage.setItem("isLoggedIn", true);
 
         window.location.href = "/";
       } else {
